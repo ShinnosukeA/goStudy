@@ -2,17 +2,20 @@ package main
 
 import "fmt"
 
-func calc(index string, a, b int) int {
-	ret := a + b
-	fmt.Println(index, a, b, ret)
-	return ret
+type student struct {
+	name string
+	age  int
 }
 
+func newStudent(name string, age int) student {
+	return student{
+		name,
+		age,
+	}
+
+}
 func main() {
-	x := 1
-	y := 2
-	defer calc("AA", x, calc("A", x, y))
-	x = 10
-	defer calc("BB", x, calc("B", x, y))
-	y = 20
+	s := newStudent("a", 1)
+
+	fmt.Println(s)
 }
